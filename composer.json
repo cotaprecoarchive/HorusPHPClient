@@ -19,5 +19,14 @@
                 "tests"
             ]
         }
-    }
+    },
+    "keywords": [
+        "realtime",
+        "messaging",
+        "horus",
+        "websocket",
+        "udp"
+    ],
+    "type": "library",
+    "license": "MIT"
 }
