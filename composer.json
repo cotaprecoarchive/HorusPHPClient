@@ -1,10 +1,15 @@
 {
     "name": "cotapreco/horus",
     "description": "A simple PHP client for sending messages to Horus receivers :-)",
-    "authors": [{
-        "name": "Andrey K. Vital",
-        "email": "andreykvital@gmail.com"
-    }],
+    "authors": [
+        {
+            "name": "Andrey K. Vital",
+            "email": "andreykvital@gmail.com",
+            "homepage": "https://github.com/CentaurWarchief"
+        }
+    ],
+    "type": "library",
+    "license": "MIT",
     "require": {
         "php": "~5.5"
     },
@@ -14,10 +19,12 @@
     },
     "autoload": {
         "psr-0": {
-            "CotaPreco": [
-                "src",
-                "tests"
-            ]
+            "CotaPreco": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-0": {
+            "CotaPreco": "tests"
         }
     },
     "keywords": [
@@ -26,7 +33,5 @@
         "horus",
         "websocket",
         "udp"
-    ],
-    "type": "library",
-    "license": "MIT"
+    ]
 }
