@@ -9,4 +9,5 @@ before_script:
 
 script:
     - make tests
+    - make phpmd
     - make check-cs
