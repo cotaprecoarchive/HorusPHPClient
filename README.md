@@ -9,4 +9,4 @@ $ composer require cotapreco/horus
 ```
 
 ## License
-[MIT License](https://github.com/CotaPreco/HorusPHPClient/blob/develop/LICENSE) &copy; Cota Preço.
+[MIT](https://github.com/CotaPreco/HorusPHPClient/blob/develop/LICENSE) &copy; Cota Preço
