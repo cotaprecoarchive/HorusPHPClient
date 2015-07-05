@@ -16,7 +16,7 @@ final class NullByte implements MessagePackingStrategyInterface
     /**
      * {@inheritDoc}
      */
-    public function pack(MessageInterface $message)
+    public function __invoke(MessageInterface $message)
     {
         $escape = function ($tagOrMessage) {
             return str_replace(chr(0), null, $tagOrMessage);

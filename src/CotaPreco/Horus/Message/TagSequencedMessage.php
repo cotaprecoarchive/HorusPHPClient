@@ -2,36 +2,29 @@
 
 namespace CotaPreco\Horus\Message;
 
-use CotaPreco\Horus\Tag\TagInterface;
-
 /**
  * @author Andrey K. Vital <andreykvital@gmail.com>
  */
-class TagSequencedMessage extends Message
+final class TagSequencedMessage extends Message
 {
     /**
-     * @var TagInterface[]
+     * @var string[]
      */
     private $tags;
 
     /**
-     * @param TagInterface[] $tags
-     * @param string         $message
+     * @param string[] $tags
+     * @param string   $message
      */
     public function __construct(array $tags, $message)
     {
-        $this->tags = array_map(
-            function (TagInterface $tag) {
-                return $tag;
-            },
-            $tags
-        );
-
         parent::__construct($message);
+
+        $this->tags = $tags;
     }
 
     /**
-     * @return TagInterface[]
+     * @return string[]
      */
     public function getTags()
     {

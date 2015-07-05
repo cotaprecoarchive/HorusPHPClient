@@ -13,5 +13,5 @@ interface MessagePackingStrategyInterface
      * @param  MessageInterface $message
      * @return string
      */
-    public function pack(MessageInterface $message);
+    public function __invoke(MessageInterface $message);
 }

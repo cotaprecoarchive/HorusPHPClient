@@ -2,7 +2,6 @@
 
 namespace CotaPreco\Horus\Message;
 
-use CotaPreco\Horus\Tag\Tag;
 use PHPUnit_Framework_TestCase as TestCase;
 
 /**
@@ -20,7 +19,7 @@ class TaggedMessageTest extends TestCase
      */
     protected function setUp()
     {
-        $this->message = new TaggedMessage(Tag::fromString('tag'), 'message');
+        $this->message = new TaggedMessage('tag', 'message');
     }
 
     /**
@@ -28,7 +27,7 @@ class TaggedMessageTest extends TestCase
      */
     public function getTag()
     {
-        $this->assertInstanceOf(Tag::class, $this->message->getTag());
+        $this->assertEquals('tag', $this->message->getTag());
     }
 
     /**

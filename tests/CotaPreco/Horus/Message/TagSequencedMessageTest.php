@@ -2,8 +2,6 @@
 
 namespace CotaPreco\Horus\Message;
 
-use CotaPreco\Horus\Tag\Tag;
-use CotaPreco\Horus\Tag\TagInterface;
 use PHPUnit_Framework_TestCase as TestCase;
 
 /**
@@ -16,17 +14,8 @@ class TagSequencedMessageTest extends TestCase
      */
     public function getTags()
     {
-        $tagSequencedMessage = new TagSequencedMessage(
-            [
-                new Tag('A'),
-                new Tag('B')
-            ],
-            'message'
-        );
+        $message = new TagSequencedMessage(['A', 'B'], 'message');
 
-        $this->assertContainsOnlyInstancesOf(
-            TagInterface::class,
-            $tagSequencedMessage->getTags()
-        );
+        $this->assertCount(2, $message->getTags());
     }
 }

@@ -25,8 +25,11 @@ class Horus
     /**
      * @param MessageInterface $message
      */
-    public function send(MessageInterface $message)
+    public function __invoke(MessageInterface $message)
     {
-        $this->transport->send($message);
+        /* @var callable $transport */
+        $transport = $this->transport;
+
+        $transport($message);
     }
 }

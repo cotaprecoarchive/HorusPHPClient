@@ -2,7 +2,7 @@
 
 namespace CotaPreco\Horus;
 
-use CotaPreco\Horus\Message\MessageInterface;
+use CotaPreco\Horus\Message\Message;
 use PHPUnit_Framework_TestCase as TestCase;
 
 /**
@@ -13,19 +13,19 @@ class HorusTest extends TestCase
     /**
      * @test
      */
-    public function send()
+    public function invoke()
     {
-        /* @var MessageInterface $message */
-        $message = $this->getMock(MessageInterface::class);
+        $message = new Message('message');
 
-        /* @var MessageTransportInterface|\PHPUnit_Framework_MockObject_MockObject $transport */
+        /* @var \PHPUnit_Framework_MockObject_MockObject|MessageTransportInterface $transport */
         $transport = $this->getMock(MessageTransportInterface::class);
 
         $transport->expects($this->once())
-            ->method('send')
+            ->method('__invoke')
             ->with($this->equalTo($message));
 
         $horus = new Horus($transport);
-        $horus->send($message);
+
+        $horus($message);
     }
 }

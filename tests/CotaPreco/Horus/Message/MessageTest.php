@@ -22,7 +22,7 @@ class MessageTest extends TestCase
     /**
      * @test
      */
-    public function castsToString()
+    public function toString()
     {
         $this->assertSame('message', (string) new Message('message'));
     }

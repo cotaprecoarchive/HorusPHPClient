@@ -13,5 +13,5 @@ interface MessageTransportInterface
      * @param  MessageInterface $message
      * @return mixed
      */
-    public function send(MessageInterface $message);
+    public function __invoke(MessageInterface $message);
 }

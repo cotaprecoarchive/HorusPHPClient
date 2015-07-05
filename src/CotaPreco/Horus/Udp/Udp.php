@@ -3,7 +3,6 @@
 namespace CotaPreco\Horus\Udp;
 
 use CotaPreco\Horus\Message\MessageInterface;
-use CotaPreco\Horus\MessagePackerInterface;
 use CotaPreco\Horus\MessagePackingStrategyInterface;
 use CotaPreco\Horus\MessageTransportInterface;
 use CotaPreco\Horus\Udp\PackingStrategy\NullByte;
@@ -52,18 +51,17 @@ class Udp implements MessageTransportInterface
     /**
      * {@inheritDoc}
      */
-    public function send(MessageInterface $message)
+    public function __invoke(MessageInterface $message)
     {
-        /* @var string $packedMessage */
-        $packedMessage       = $this->packingStrategy->pack($message);
+        /* @var callable $packingStrategy */
+        $packingStrategy = $this->packingStrategy;
 
-        /* @var int $packedMessageLength */
-        $packedMessageLength = strlen($packedMessage);
+        $packedMessage = $packingStrategy($message);
 
         $bytesWritten = socket_sendto(
             $this->socket,
             $packedMessage,
-            $packedMessageLength,
+            strlen($packedMessage),
             0,
             $this->host,
             $this->port
